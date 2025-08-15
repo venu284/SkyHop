@@ -1,0 +1,441 @@
+body {
+    margin: 0;
+    background-color: #f5ebe0;
+    font-family: Arial, sans-serif;
+    overflow: auto; /* Allow scrolling when content overflows */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height view */
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f5ebe0;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling of the whole page */
+}
+
+
+/* Step Indicators */
+.step-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.step-container {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    width: 30px;
+    height: 2px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.step {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.step.active {
+    background-color: #F0FFFF;
+    border-color: #1C1C1C;
+    color: #1C1C1C;
+}
+
+
+/* Step Content */
+.step-content {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Make this area grow and take available space */
+    overflow-y: auto; /* Allow scrolling within the step content */
+    padding-bottom: 60px; /* Space for buttons at the bottom */
+}
+
+/* Input Form */
+.form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+/* Input Rows */
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Spacing between boxes */
+    flex-wrap: wrap; /* Allow items to wrap for smaller screens */
+}
+
+/* Input Groups */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Equal width for all input groups */
+    position: relative;
+    min-width: 250px; /* Ensure input groups don’t shrink too much */
+}
+
+.input-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px 15px;
+    padding-left: 45px; /* Space for icons */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box; /* Prevent overflow */
+    height: 50px;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #1C1C1C;
+}
+
+/* Icons */
+.input-icon {
+    position: absolute;
+    top: 50%; /* Center the icon vertically */
+    left: 15px; /* Space from the left */
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #666;
+}
+
+
+
+.flight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flight-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0f8ff; /* Subtle blue background */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: 2px solid transparent; /* Default border */
+}
+
+.flight-card.selected {
+    border: 2px solid black; /* Black border when selected */
+}
+
+.flight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.flight-logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.flight-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.flight-info h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.flight-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+.flight-price h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #1c1c1c;
+    font-weight: bold;
+}
+
+/* Add this to your body.css */
+.summary {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.summary p {
+    margin: 5px 0;
+}
+
+.payment-form {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.payment-form .input-group {
+    margin-bottom: 15px;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Base button style */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1C1C1C;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    transition: background-color 0.3s, transform 0.2s ease; /* Add transition for smooth hover */
+}
+
+/* Sticky container for navigation buttons */
+.navigation-buttons {
+    position: sticky;
+    bottom: 20px; /* Keeps buttons at the bottom */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff; /* Ensures the buttons stay visible */
+    z-index: 10;
+}
+
+/* Ensuring equal space between previous and next buttons */
+.navigation-buttons button {
+    flex: 1;
+    margin: 0 10px; /* Adjust space between buttons */
+}
+
+/* Disabled button state */
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #333;
+}
+
+.flight-summary {
+    display: flex;  /* Create a flex container */
+    justify-content: space-between; /* Space out the two sections */
+    padding: 15px;
+    border: 2px solid #0088ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.flight-sum, .user-summary {
+    flex: 1;  /* Equal width for both sections */
+    padding: 10px;
+}
+
+.flight-sum p, .user-summary p {
+    margin: 5px 0;
+}
+
+.flight-sum p strong, .user-summary p strong {
+    font-weight: bold;
+}
+
+.flight-sum {
+    border-left: 2px solid #0088ff; /* Add a border to separate the two sections */
+    padding-left: 20px; /* Space between border and content */
+}
+
+.passenger-input-row {
+    margin-bottom: 15px; /* Adds spacing between each passenger input row */
+}
+
+.passenger-names {
+    display: flex;
+    gap: 10px; /* Adds space between the first and last name boxes */
+    width: 50%; /* Restrict to half the screen width */
+    justify-content: space-between; /* Evenly space out the boxes */
+}
+
+.passenger-names input[type="text"] {
+    flex: 1; /* Ensures both boxes take equal width within their container */
+    padding: 10px; /* Increased padding for a better height */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 40px; /* Set a fixed height to match other inputs */
+}
+
+.input-people {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Equal width for all input groups */
+    position: relative;
+    min-width: 250px;
+}
+
+.input-people input[type="number"] {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 40px;
+}
+
+.input-people label {
+    margin-bottom: 5px;
+    font-family: Verdana, sans-serif;
+}
+
+
+.ticket-container {
+    background-color: #F0F8FF;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%; /* Adjust width as needed */
+    margin: 20px auto;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.ticket-header .from-to span {
+    display: block;
+    font-size: 16px;
+}
+
+.ticket-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.ticket-details p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.ticket-id {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.passenger-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.passenger-box {
+    background-color: #E6F7FF;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    flex: 1 1 45%; /* Adjusts width for two columns */
+    text-align: center;
+    font-size: 14px;
+}
+
+.passenger-box p {
+    margin: 0;
+}
+
+.from-to {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures items are vertically centered */
+    font-size: 18px; /* Increase font size */
+    margin-bottom: 15px; /* Add margin if needed */
+    gap: 900px;
+}
+
+.from-to span {
+    flex: 1; /* Ensures even spacing between "From" and "To" */
+    text-align: center; /* Centers the text */
+    white-space: nowrap;
+}
+
+.backtopage1 {
+    background-color: aliceblue;
+    border: 2px solid darkblue; /* Fixed the border color issue */
+    color: black; /* Sets the text color to black */
+    padding: 10px 20px; /* Adds padding for a better button size */
+    font-size: 16px; /* Adjusts font size for readability */
+    text-align: center; /* Centers the text within the button */
+    border-radius: 5px; /* Rounds the corners slightly */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    display: inline-block; /* Keeps the button inline for centering */
+    margin: 10px auto; /* Centers the button horizontally */
+}
+
+.backtopage1:hover {
+    background-color: #DCE9F6; /* Changes to a darker Alice Blue shade on hover */
+}
