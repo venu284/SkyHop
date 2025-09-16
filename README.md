@@ -73,11 +73,6 @@ SQL Workbench Setup:
    5. Then enter `npm start` - start the localhost:3030 server
 9. Once both the frontend and backend are running, the project is up and running successfully.
 
-## Flight Table
-
-- This table only contains 8 flight all for Nov 20, 2024
-    - <img width="569" alt="image" src="https://github.com/user-attachments/assets/fcab6d92-374b-454d-834e-c89206f83381">
-
 
 ## Contribution
 
