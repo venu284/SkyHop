@@ -36,7 +36,6 @@ Before you begin, ensure you have met the following requirements:
 - Java Oracle SDK 23.0.1
 - MySQL Ver 5.7.24
 - Node.js (for React)
-- IDE of choice (IntelliJ)
 
 For testing purposes:
 
